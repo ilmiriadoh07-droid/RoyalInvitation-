@@ -1,1 +1,1101 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hadi & Riya — Wedding Invitation</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"><style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080706;
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
+
+body.open{
+    overflow:auto;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --gold:#d4af37;
+    --gold-light:#f1d77a;
+    --dark:#080706;
+    --muted:#aaa;
+}
+
+/* =========================
+   COVER
+========================= */
+
+.cover{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,.16),
+            transparent 38%
+        ),
+        #080706;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+.cover.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.cover-content{
+    width:min(600px,90%);
+}
+
+.cover-label{
+    font-size:10px;
+    letter-spacing:5px;
+    color:#aaa;
+}
+
+.cover h1{
+    margin:25px 0;
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:72px;
+    font-weight:400;
+    line-height:.9;
+
+    color:var(--gold);
+}
+
+.cover-date{
+    font-size:11px;
+    letter-spacing:4px;
+    color:#aaa;
+}
+
+.gold-line{
+    width:90px;
+    height:1px;
+    margin:30px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
+
+.guest{
+    margin-top:30px;
+    color:#888;
+    font-size:11px;
+}
+
+.open-button{
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    border:1px solid var(--gold);
+    background:transparent;
+
+    color:var(--gold);
+
+    font-size:10px;
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.open-button:hover{
+    background:var(--gold);
+    color:#080706;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    z-index:900;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    border:1px solid var(--gold);
+    background:#0d0b08;
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    display:none;
+}
+
+.music-button.show{
+    display:block;
+}
+
+.music-button.playing{
+    animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,.12),
+            transparent 40%
+        );
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.eyebrow{
+    font-size:10px;
+    letter-spacing:5px;
+    color:#aaa;
+}
+
+.hero h2{
+    margin:25px 0;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:75px;
+    font-weight:400;
+
+    line-height:.9;
+
+    color:var(--gold);
+}
+
+.hero-date{
+    font-size:12px;
+    letter-spacing:4px;
+    color:#aaa;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:90px 20px;
+}
+
+.container{
+    width:min(950px,100%);
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title small{
+    font-size:9px;
+    letter-spacing:4px;
+    color:var(--gold);
+}
+
+.section-title h2{
+    margin-top:10px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:45px;
+    font-weight:400;
+}
+
+/* =========================
+   COUPLE
+========================= */
+
+.couple{
+    text-align:center;
+}
+
+.couple-text{
+    max-width:600px;
+    margin:0 auto 50px;
+
+    color:#aaa;
+    line-height:1.9;
+    font-size:13px;
+}
+
+.couple-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.person{
+    padding:30px;
+
+    border:1px solid rgba(212,175,55,.18);
+}
+
+.person-photo{
+    width:170px;
+    height:170px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#17130c;
+
+    border:1px solid rgba(212,175,55,.4);
+
+    color:#777;
+    font-size:11px;
+}
+
+.person h3{
+    margin-top:25px;
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    font-weight:500;
+
+    color:var(--gold);
+}
+
+.person p{
+    margin-top:8px;
+
+    color:#888;
+    font-size:11px;
+    line-height:1.7;
+}
+
+/* =========================
+   EVENT
+========================= */
+
+.events{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.event{
+    text-align:center;
+
+    padding:40px 25px;
+
+    border:1px solid rgba(212,175,55,.2);
+
+    background:rgba(255,255,255,.015);
+}
+
+.event h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    color:var(--gold);
+}
+
+.event-date{
+    margin-top:20px;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.event-time{
+    margin-top:10px;
+    color:#aaa;
+    font-size:12px;
+}
+
+.event-place{
+    margin-top:20px;
+    color:#aaa;
+    line-height:1.8;
+    font-size:12px;
+}
+
+.map-button{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:11px 20px;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+
+    max-width:650px;
+
+    margin:auto;
+}
+
+.count-box{
+    padding:25px 10px;
+
+    border:1px solid rgba(212,175,55,.2);
+
+    text-align:center;
+}
+
+.count-box strong{
+    display:block;
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:40px;
+
+    color:var(--gold);
+}
+
+.count-box span{
+    font-size:8px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.gallery-item{
+    aspect-ratio:1/1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #19150d,
+            #302513
+        );
+
+    border:1px solid rgba(212,175,55,.1);
+
+    color:#777;
+    font-size:10px;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-card{
+    max-width:600px;
+    margin:auto;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    border:1px solid rgba(212,175,55,.25);
+}
+
+.gift-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    color:var(--gold);
+}
+
+.gift-card p{
+    margin:15px auto 25px;
+
+    color:#999;
+    font-size:12px;
+    line-height:1.8;
+}
+
+.account{
+    padding:20px;
+
+    background:#111;
+
+    font-size:12px;
+    line-height:2;
+}
+
+.copy-button{
+    margin-top:20px;
+
+    padding:10px 20px;
+
+    background:transparent;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp{
+    text-align:center;
+}
+
+.rsvp p{
+    max-width:550px;
+    margin:0 auto;
+
+    color:#999;
+    line-height:1.8;
+    font-size:12px;
+}
+
+.rsvp-button{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:15px 30px;
+
+    background:#25D366;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing{
+    min-height:70vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.12),
+            transparent 45%
+        );
+}
+
+.closing h2{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:65px;
+
+    font-weight:400;
+
+    color:var(--gold);
+}
+
+.closing p{
+    margin-top:20px;
+
+    color:#888;
+    font-size:12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:30px 20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#555;
+
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:650px){
+
+    .cover h1{
+        font-size:55px;
+    }
+
+    .hero h2{
+        font-size:55px;
+    }
+
+    .couple-grid,
+    .events{
+        grid-template-columns:1fr;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .closing h2{
+        font-size:50px;
+    }
+
+}
+
+</style></head><body><!-- =================================
+     DATA UNDANGAN
+================================= --><script>
+
+const DATA = {
+
+    pria: "Nama Mempelai Pria",
+
+    wanita: "Nama Mempelai Wanita",
+
+    tanggal: "12 Desember 2026",
+
+    countdown: "2026-12-12T11:00:00",
+
+    akad: {
+        tanggal: "12 Desember 2026",
+        waktu: "09.00 WIB",
+        tempat: "Nama Tempat Akad",
+        alamat: "Alamat lengkap tempat akad"
+    },
+
+    resepsi: {
+        tanggal: "12 Desember 2026",
+        waktu: "11.00 WIB",
+        tempat: "Nama Gedung / Venue",
+        alamat: "Alamat lengkap lokasi resepsi"
+    },
+
+    maps: "https://maps.google.com/",
+
+    rekening: {
+        bank: "NAMA BANK",
+        nomor: "0000000000",
+        nama: "Nama Pemilik Rekening"
+    },
+
+    whatsapp: "6280000000000",
+
+    music: ""
+
+};
+
+</script><!-- =================================
+     COVER
+================================= --><div class="cover" id="cover"><div class="cover-content"><div class="cover-label">
+THE WEDDING OF
+</div><h1>
+<span id="coverPria"></span>
+<br>
+&
+<br>
+<span id="coverWanita"></span>
+</h1><div class="gold-line"></div><div class="cover-date" id="coverTanggal"></div><div class="guest">
+Kepada Yth.<br>
+Bapak/Ibu/Saudara/i
+</div><button class="open-button" onclick="openInvitation()">
+BUKA UNDANGAN
+</button></div></div><!-- =================================
+     MUSIC
+================================= --><button
+class="music-button"
+id="musicButton"
+onclick="toggleMusic()">
+♫
+</button>
+
+<audio id="music"></audio>
+
+<!-- =================================
+     HERO
+================================= --><section class="hero"><div class="hero-content"><div class="eyebrow">
+THE WEDDING OF
+</div><h2>
+<span id="heroPria"></span>
+<br>
+&
+<br>
+<span id="heroWanita"></span>
+</h2><div class="hero-date" id="heroTanggal"></div></div></section><!-- =================================
+     COUPLE
+================================= --><section><div class="container"><div class="section-title"><small>
+BRIDE & GROOM
+</small><h2>
+Mempelai
+</h2></div><div class="couple"><p class="couple-text">Dengan penuh rasa syukur dan kebahagiaan,
+kami mengundang Bapak/Ibu/Saudara/i
+untuk menjadi bagian dari hari istimewa kami.
+
+</p><div class="couple-grid"><div class="person"><div class="person-photo">
+FOTO PRIA
+</div><h3 id="priaName"></h3><p>
+Putra dari<br>
+Bapak Nama Ayah<br>
+& Ibu Nama Ibu
+</p></div><div class="person"><div class="person-photo">
+FOTO WANITA
+</div><h3 id="wanitaName"></h3><p>
+Putri dari<br>
+Bapak Nama Ayah<br>
+& Ibu Nama Ibu
+</p></div></div></div></div></section><!-- =================================
+     COUNTDOWN
+================================= --><section><div class="container"><div class="section-title"><small>
+COUNTING THE DAYS
+</small><h2>
+Menuju Hari Bahagia
+</h2></div><div class="countdown"><div class="count-box">
+<strong id="days">0</strong>
+<span>HARI</span>
+</div><div class="count-box">
+<strong id="hours">0</strong>
+<span>JAM</span>
+</div><div class="count-box">
+<strong id="minutes">0</strong>
+<span>MENIT</span>
+</div><div class="count-box">
+<strong id="seconds">0</strong>
+<span>DETIK</span>
+</div></div></div></section><!-- =================================
+     EVENT
+================================= --><section><div class="container"><div class="section-title"><small>
+SAVE THE DATE
+</small><h2>
+Acara Pernikahan
+</h2></div><div class="events"><div class="event"><h3>
+Akad Nikah
+</h3><div class="event-date" id="akadTanggal"></div><div class="event-time" id="akadWaktu"></div><div class="event-place"><strong id="akadTempat"></strong>
+
+<br><span id="akadAlamat"></span>
+
+</div></div><div class="event"><h3>
+Resepsi
+</h3><div class="event-date" id="resepsiTanggal"></div><div class="event-time" id="resepsiWaktu"></div><div class="event-place"><strong id="resepsiTempat"></strong>
+
+<br><span id="resepsiAlamat"></span>
+
+</div><a
+id="mapsButton"
+class="map-button"
+target="_blank">
+GOOGLE MAPS
+</a>
+
+</div></div></div></section><!-- =================================
+     GALLERY
+================================= --><section><div class="container"><div class="section-title"><small>
+OUR MOMENTS
+</small><h2>
+Galeri
+</h2></div><div class="gallery"><div class="gallery-item">
+FOTO 01
+</div><div class="gallery-item">
+FOTO 02
+</div><div class="gallery-item">
+FOTO 03
+</div><div class="gallery-item">
+FOTO 04
+</div><div class="gallery-item">
+FOTO 05
+</div><div class="gallery-item">
+FOTO 06
+</div></div></div></section><!-- =================================
+     GIFT
+================================= --><section><div class="container"><div class="section-title"><small>
+WEDDING GIFT
+</small><h2>
+Tanda Kasih
+</h2></div><div class="gift-card"><h3>
+Wedding Gift
+</h3><p>
+Doa dan kehadiran Anda merupakan hadiah
+terindah bagi kami. Bagi yang ingin memberikan
+tanda kasih, dapat melalui rekening berikut.
+</p><div class="account"><strong id="bank"></strong>
+
+<br><span id="rekening"></span>
+
+<br><span id="rekeningNama"></span>
+
+</div><button
+class="copy-button"
+onclick="copyRekening()">
+SALIN NOMOR REKENING
+</button>
+
+</div></div></section><!-- =================================
+     RSVP
+================================= --><section><div class="container"><div class="rsvp"><div class="section-title"><small>
+RSVP
+</small><h2>
+Konfirmasi Kehadiran
+</h2></div><p>
+Mohon konfirmasi kehadiran Anda melalui
+WhatsApp agar kami dapat mempersiapkan
+acara dengan sebaik-baiknya.
+</p><a
+id="rsvpButton"
+class="rsvp-button"
+target="_blank">
+
+KONFIRMASI VIA WHATSAPP
+
+</a></div></div></section><!-- =================================
+     CLOSING
+================================= --><section class="closing"><div><div class="eyebrow">
+WITH LOVE
+</div><h2>
+<span id="closingPria"></span>
+&
+<span id="closingWanita"></span>
+</h2><p>
+Terima kasih telah menjadi bagian
+dari hari bahagia kami.
+</p></div></section><footer>ROYALINVITE
+
+</footer><script>
+
+/* =========================
+   ISI DATA KE HALAMAN
+========================= */
+
+document.getElementById("coverPria").textContent = DATA.pria;
+document.getElementById("coverWanita").textContent = DATA.wanita;
+
+document.getElementById("heroPria").textContent = DATA.pria;
+document.getElementById("heroWanita").textContent = DATA.wanita;
+
+document.getElementById("priaName").textContent = DATA.pria;
+document.getElementById("wanitaName").textContent = DATA.wanita;
+
+document.getElementById("closingPria").textContent = DATA.pria;
+document.getElementById("closingWanita").textContent = DATA.wanita;
+
+document.getElementById("coverTanggal").textContent =
+DATA.tanggal;
+
+document.getElementById("heroTanggal").textContent =
+DATA.tanggal;
+
+
+/* =========================
+   EVENT
+========================= */
+
+document.getElementById("akadTanggal").textContent =
+DATA.akad.tanggal;
+
+document.getElementById("akadWaktu").textContent =
+DATA.akad.waktu;
+
+document.getElementById("akadTempat").textContent =
+DATA.akad.tempat;
+
+document.getElementById("akadAlamat").textContent =
+DATA.akad.alamat;
+
+
+document.getElementById("resepsiTanggal").textContent =
+DATA.resepsi.tanggal;
+
+document.getElementById("resepsiWaktu").textContent =
+DATA.resepsi.waktu;
+
+document.getElementById("resepsiTempat").textContent =
+DATA.resepsi.tempat;
+
+document.getElementById("resepsiAlamat").textContent =
+DATA.resepsi.alamat;
+
+document.getElementById("mapsButton").href =
+DATA.maps;
+
+
+/* =========================
+   REKENING
+========================= */
+
+document.getElementById("bank").textContent =
+DATA.rekening.bank;
+
+document.getElementById("rekening").textContent =
+DATA.rekening.nomor;
+
+document.getElementById("rekeningNama").textContent =
+DATA.rekening.nama;
+
+
+/* =========================
+   RSVP
+========================= */
+
+const message =
+`Halo, saya ingin mengonfirmasi kehadiran
+di acara pernikahan ${DATA.pria} & ${DATA.wanita}.`;
+
+document.getElementById("rsvpButton").href =
+"https://wa.me/" +
+DATA.whatsapp +
+"?text=" +
+encodeURIComponent(message);
+
+
+/* =========================
+   OPEN INVITATION
+========================= */
+
+function openInvitation(){
+
+    document.getElementById("cover")
+        .classList.add("hide");
+
+    document.body.classList.add("open");
+
+    document.getElementById("musicButton")
+        .classList.add("show");
+
+    if(DATA.music){
+
+        const music =
+        document.getElementById("music");
+
+        music.src = DATA.music;
+
+        music.play()
+        .then(()=>{
+            document
+            .getElementById("musicButton")
+            .classList.add("playing");
+        })
+        .catch(()=>{});
+
+    }
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function toggleMusic(){
+
+    const music =
+    document.getElementById("music");
+
+    const button =
+    document.getElementById("musicButton");
+
+    if(!music.src) return;
+
+    if(music.paused){
+
+        music.play();
+
+        button.classList.add("playing");
+
+    }else{
+
+        music.pause();
+
+        button.classList.remove("playing");
+
+    }
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const target =
+new Date(DATA.countdown).getTime();
+
+function updateCountdown(){
+
+    const now =
+    new Date().getTime();
+
+    const distance =
+    target - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days")
+        .textContent = "0";
+
+        document.getElementById("hours")
+        .textContent = "0";
+
+        document.getElementById("minutes")
+        .textContent = "0";
+
+        document.getElementById("seconds")
+        .textContent = "0";
+
+        return;
+
+    }
+
+    const days =
+    Math.floor(
+        distance / (1000*60*60*24)
+    );
+
+    const hours =
+    Math.floor(
+        (distance % (1000*60*60*24))
+        / (1000*60*60)
+    );
+
+    const minutes =
+    Math.floor(
+        (distance % (1000*60*60))
+        / (1000*60)
+    );
+
+    const seconds =
+    Math.floor(
+        (distance % (1000*60))
+        / 1000
+    );
+
+    document.getElementById("days")
+    .textContent = days;
+
+    document.getElementById("hours")
+    .textContent = hours;
+
+    document.getElementById("minutes")
+    .textContent = minutes;
+
+    document.getElementById("seconds")
+    .textContent = seconds;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* =========================
+   COPY REKENING
+========================= */
+
+function copyRekening(){
+
+    navigator.clipboard
+    .writeText(DATA.rekening.nomor)
+    .then(()=>{
+
+        alert("Nomor rekening berhasil disalin.");
+
+    });
+
+}
+
+</script></body>
+  </html>
